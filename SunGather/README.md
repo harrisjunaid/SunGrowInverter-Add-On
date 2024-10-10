@@ -17,9 +17,9 @@
     <br />
     <a href="https://sungather.net">Website Sungather.net</a>
     ·
-    <a href="https://github.com/bohdan-s/hassio-repository/issues">Report Bug</a>
+    <a href="https://github.com/harrisjunaid/SunGrowInverter-Add-On/issues">Report Bug</a>
     ·
-    <a href="https://github.com/bohdan-s/hassio-repository/issues">Request Feature</a>
+    <a href="https://github.com/harrisjunaid/SunGrowInverter-Add-On/issues">Request Feature</a>
   </p>
 </div>
 
@@ -118,12 +118,12 @@ Project Link: [https://github.com/bohdan-s/SunGather](https://github.com/bohdan-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/bohdan-s/hassio-repository.svg?style=for-the-badge
-[contributors-url]: https://github.com/bohdan-s/hassio-repository/graphs/contributors
+[contributors-url]: https://github.com/harrisjunaid/SunGrowInverter-Add-On/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/bohdan-s/hassio-repository.svg?style=for-the-badge
-[forks-url]: https://github.com/bohdan-s/hassio-repository/network/members
+[forks-url]: https://github.com/harrisjunaid/SunGrowInverter-Add-On/network/members
 [stars-shield]: https://img.shields.io/github/stars/bohdan-s/hassio-repository.svg?style=for-the-badge
-[stars-url]: https://github.com/bohdan-s/hassio-repository/stargazers
+[stars-url]: https://github.com/harrisjunaid/SunGrowInverter-Add-On/stargazers
 [issues-shield]: https://img.shields.io/github/issues/bohdan-s/hassio-repository.svg?style=for-the-badge
-[issues-url]: https://github.com/bohdan-s/hassio-repository/issues
+[issues-url]: https://github.com/harrisjunaid/SunGrowInverter-Add-On/issues
 [license-shield]: https://img.shields.io/github/license/bohdan-s/hassio-repository.svg?style=for-the-badge
-[license-url]: https://github.com/bohdan-s/hassio-repository/blob/main/LICENSE.txt
+[license-url]: https://github.com/harrisjunaid/SunGrowInverter-Add-On/blob/main/LICENSE.txt
