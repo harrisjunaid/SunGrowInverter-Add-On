@@ -1,13 +1,17 @@
 #!/usr/bin/with-contenv bashio
 
+# Setting up directories and copying config.yaml on HAOS
+###############################################
 if [ ! -d /share/SunGather ]; then
   mkdir -p /share/SunGather
 fi
 
-if [ ! -f /share/SunGather/config.yaml ]; then
-    cp config-hassio.yaml /share/SunGather/config.yaml
+if [ ! -f /share/SunGather/config-0x01.yaml ]; then
+    cp config-hassio.yaml /share/SunGather/config-0x01.yaml
 fi
 
+# Reading config.yaml and setting up the variables
+###############################################
 INVERTER_HOST=$(bashio::config 'host')
 INTERVAL=$(bashio::config 'scan_interval')
 CONNECTION=$(bashio::config 'connection')
@@ -16,7 +20,7 @@ CUSTOM_MQTT_SERVER=$(bashio::config 'custom_mqtt_server')
 LOG_CONSOLE=$(bashio::config 'log_console')
 
 if [ $CUSTOM_MQTT_SERVER = true ]; then
-   echo "Skipping auto MQTT set up, please ensure MQTT settings are configured in /share/SunGather/config.yaml"
+   echo "Skipping auto MQTT set up, please ensure MQTT settings are configured in /share/SunGather/config-0x01.yaml"
 else
   if ! bashio::services.available "mqtt"; then
     bashio::exit.nok "No internal MQTT Broker found. Please install Mosquitto broker."
@@ -33,7 +37,7 @@ else
         (.exports[] | select(.name == \"mqtt\") | .username) = \"$MQTT_USER\" |
         (.exports[] | select(.name == \"mqtt\") | .password) = \"$MQTT_PASS\" |
         (.exports[] | select(.name == \"mqtt\") | .homeassistant) = True
-      " /share/SunGather/config.yaml
+      " /share/SunGather/config-0x01.yaml
   fi
 fi
 
@@ -43,18 +47,20 @@ yq -i "
   .inverter.connection = \"$CONNECTION\" |
   .inverter.smart_meter = $SMART_METER |
   .inverter.log_console = \"$LOG_CONSOLE\"
-" /share/SunGather/config.yaml
+" /share/SunGather/config-0x01.yaml
 
 yq -i "
   (.exports[] | select(.name == \"hassio\") | .enabled) = True |
   (.exports[] | select(.name == \"hassio\") | .api_url) = \"http://supervisor/core/api\" |
   (.exports[] | select(.name == \"hassio\") | .token) = \"$SUPERVISOR_TOKEN\"
-" /share/SunGather/config.yaml
+" /share/SunGather/config-0x01.yaml
 
 yq -i "
   (.exports[] | select(.name == \"webserver\") | .enabled) = True |
   (.exports[] | select(.name == \"webserver\") | .port) = 8099
-" /share/SunGather/config.yaml
+" /share/SunGather/config-0x01.yaml
 
+# Activate the virtual environment and run the script
+###############################################
 source ./venv/bin/activate
-exec python3 /sungather.py -c /share/SunGather/config.yaml -l /share/SunGather/
+exec python3 /sungather.py -c /share/SunGather/config-0x01.yaml -l /share/SunGather/

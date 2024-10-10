@@ -1,3 +1,8 @@
+# Getting ready for PyPi
+# https://packaging.python.org/tutorials/packaging-projects/
+# https://packaging.python.org/guides/distributing-packages-using-setuptools/
+# https://packaging.python.org/guides/using-manifest-in/
+############################################
 import setuptools
 
 exec(open('SunGather/version.py').read())
@@ -8,12 +13,12 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="SunGather",
     version=__version__,
-    author="Bohdan Flower",
-    author_email="github@bohdan.net",
-    description="Collect data from Sungrow Inverters and feed to various locations (MQTT, PVOutput, Home Assistant)",
+    author="FSEL TEAM",
+    author_email="ha-fsel@faujiposer.com",
+    description="Sungrow Inverters 0x01 data collect and feed to various locations (MQTT, PVOutput, Home Assistant)",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/bohdan-s/SunGather",
+    url="https://github.com/harrisjunaid/SunGrowInverters",
     packages=setuptools.find_packages(),
     install_requires=[
         'pymodbus>=2.3.0',

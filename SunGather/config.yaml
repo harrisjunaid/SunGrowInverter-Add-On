@@ -1,6 +1,6 @@
-name: "SunGather"
+name: "SunGrow Inverter 0x01"
 version: "0.1.4"
-slug: sungather
+slug: sungather-0x01
 description: "Extract Sungrow data from local Inverter"
 arch: 
   - armhf
